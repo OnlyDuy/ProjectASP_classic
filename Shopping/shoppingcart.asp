@@ -140,7 +140,6 @@
                                 If Session("payment_completed") = False Then
                                     ' Chuyển hướng đến trang thanh toán hoặc hiển thị thông báo lỗi
                                     Session("Error")="Bạn chưa thanh toán"
-                          
                                 Else
                                     Dim cmdPrep
                                     Set cmdPrep = Server.CreateObject("ADODB.Command")
