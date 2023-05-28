@@ -1,0 +1,150 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    font-family: Arial;
+    background-color: rgb(238, 238, 238);
+}
+
+
+/* Header */
+.header{
+    background-color: rgb(227, 242, 253);
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.logo{
+    background-color: rgb(227, 242, 253);
+}
+.logo img{
+    width: 80px;
+    height: 80px;
+    background-color: rgb(227, 242, 253);
+    margin-left: 160px;
+    cursor: pointer;
+}
+.list_header ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: rgb(227, 242, 253);
+}
+.list_header li{
+    margin-left: 30px;
+    background-color: rgb(227, 242, 253);
+    font-size: 18px;
+}
+.list_header li:hover{
+    color: rgb(25, 135, 84);
+    cursor: pointer;
+}
+
+/* Container */
+.container{
+    height: 500px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.img_ads{
+    background-color: green;
+    height: 500px;
+    width: 795px;
+    border-radius: 20px;
+    margin-right: 5px;
+}
+.img_ads img{
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    cursor: pointer;    
+}
+#register_form{
+    margin-left: 5px;
+    border: 0px solid;
+    border-radius: 20px;
+    width: 395px;
+    height: 500px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#register_form input{
+    border: 0px solid;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    width: 240px;
+    height: 30px;
+}
+#register_form input[type=submit]{
+    background-color: rgb(25, 135, 84);
+    color: white;
+    margin-bottom: 10px;
+    width: 114px;
+    height: 38px;
+    font-size: 16px;
+    cursor: pointer;
+}
+#register_form input[type=button]{
+    background-color: rgb(25, 135, 84);
+    color: white;
+    margin-bottom: 10px;
+    width: 114px;
+    height: 38px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.cbox{
+    background-color: rgb(255, 255, 255);   
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+#register_form input[type=checkbox]{
+    width: 12px;
+    height: 12px;
+    margin-bottom: 5px;
+    margin-right:10px;
+}
+#register_form label{
+    background-color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-family: Arial;
+    margin-bottom: 2px;
+}
+
+.register_title{
+    background-color: rgb(255, 255, 255);
+    font-size: 40px;
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.form-group {
+    display: flex;
+    margin-bottom: 16px;
+    flex-direction: column;
+}
+
+.text_or{
+    background-color: rgb(255, 255, 255);
+    position: relative;
+    bottom: 5px;
+}
+
+
+/* Footer */
+.footer{
+    margin-top: 10px;
+    height: 190px;
+    width: 100%;
+    background-color: black;
+}
+
