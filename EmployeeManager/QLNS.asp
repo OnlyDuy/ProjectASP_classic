@@ -1,5 +1,12 @@
 <!-- #include file="../connect.asp" -->
 <%
+    ' Kiểm tra xem người dùng đã đăng nhập chưa
+    If Not Session("LoggedIn") Then
+        ' Nếu người dùng chưa đăng nhập, điều hướng họ đến trang đăng nhập
+        Response.Redirect("./loginManager.asp")
+    End If
+%>
+<%
     function Ceil(Number)
         Ceil = Int(Number)
         if Ceil<>Number Then

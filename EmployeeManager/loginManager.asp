@@ -1,4 +1,5 @@
 <!--#include file="../connect.asp"-->
+
 <%
 Dim nameAdmin, passAdmin
 nameAdmin = Request.Form("username")
@@ -13,7 +14,8 @@ passAdmin = Request.Form("password")
             ' Nếu đúng, chuyển hướng đến trang chính
             Session("nameAdmin")=rs("UserName")
             Session("Success")="Đăng nhập thành công"
-            Response.Redirect "../EmployeeManager/QLNS.asp"
+            Session("LoggedIn") = True
+            Response.Redirect "../EmployeeManager/pageQL.asp"
         Else
             If (Request.ServerVariables("REQUEST_METHOD") = "POST") Then
             Response.Write("<script>alert('Tên đăng nhập hoặc mật khẩu không đúng. Vui lòng thử lại!');</script>")
@@ -41,7 +43,7 @@ End If
 <body>
     <div class="header">
         <div class="logo">
-            <img src="../assest/img/DHDs.png" alt="Logo" onclick="location.href='../EmployeeManager/QLNS.asp'">
+            <img src="../assest/img/DHDs.png" alt="Logo" onclick="location.href='#'">
         </div>
         <div class="list_header">
             <ul>
@@ -54,7 +56,7 @@ End If
     </div>
     <div class="container">
         <div class="img_ads">
-            <img src="../assest/img/in-banner-quang-cao-do-an-7-1.jpg" alt="Salad" onclick="location.href='../EmployeeManager/QLNS.asp'">
+            <img src="../assest/img/in-banner-quang-cao-do-an-7-1.jpg" alt="Salad" onclick="location.href='#'">
         </div>
         <div class="login_fm">
             <form action="" id="login_form" method="post">
