@@ -64,7 +64,7 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link text-white " href="#">Thống kê</a>
+                                        <a class="nav-link text-white " href="../Statistic/statistic.asp">Thống kê</a>
                                     </li>
                                 </ul>
                             </div>
