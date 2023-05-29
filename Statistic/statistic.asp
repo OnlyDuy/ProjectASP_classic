@@ -66,7 +66,15 @@
                             Dim strSQL2,SLSP
                             strSQL2="SELECT SUM(SoLuong) AS SLSP FROM ChiTietDonHang inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH WHERE DonHang.ThoiGianDat BETWEEN '" & dateBD & "' AND '" & dateKT & "'"                            
                             Set RS = connDB.execute(strSQL2)
-                            SLSP = CLng(RS("SLSP"))
+                        If Not RS.EOF Then
+                            If Not IsNull(RS("SLSP")) Then
+                                SLSP = CLng(RS("SLSP"))
+                            Else
+                                SLSP = 0 ' Hoặc giá trị mặc định khác nếu phù hợp
+                        End If
+                        Else
+                            SLSP = 0 ' Hoặc giá trị mặc định khác nếu phù hợp
+                        End If
                         %>
                         <%
                             Dim strSQL3, DoanhThu
