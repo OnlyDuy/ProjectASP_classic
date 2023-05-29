@@ -1,6 +1,5 @@
 
 <!-- #include file="../connect.asp" -->
-sds
 <html lang="en">
     <head>
         <meta charset="utf-8">
