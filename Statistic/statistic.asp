@@ -64,7 +64,7 @@
                         
                         <%
                             Dim strSQL2,SLSP
-                            strSQL2="SELECT COUNT(MaSP) AS SLSP FROM ChiTietDonHang inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH WHERE DonHang.ThoiGianDat BETWEEN '" & dateBD & "' AND '" & dateKT & "'"                            
+                            strSQL2="SELECT SUM(SoLuong) AS SLSP FROM ChiTietDonHang inner join DonHang on ChiTietDonHang.MaDH=DonHang.MaDH WHERE DonHang.ThoiGianDat BETWEEN '" & dateBD & "' AND '" & dateKT & "'"                            
                             Set RS = connDB.execute(strSQL2)
                             SLSP = CLng(RS("SLSP"))
                         %>
