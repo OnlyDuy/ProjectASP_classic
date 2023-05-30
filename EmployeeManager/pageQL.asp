@@ -37,8 +37,8 @@
                             <div class="card-body p-0">
                                 <div class="row g-0">
                                     <div class="col-lg-4 d-flex align-items-center">
-                                        <div class="p-5" style = "margin-left: 80px">
-                                            <h3 class="fw-bold mb-5 mt-2 pt-1"><i>Xin Chào,</i><br>
+                                        <div class="p-5" style = "margin-left: 60px">
+                                            <h3 class="fw-bold mb-5 mt-2 pt-1"><i>Xin Chào Admin,</i><br>
                                                 <h3><% =rs("Name")%></h3>
                                             </h3>            
                                             <br>

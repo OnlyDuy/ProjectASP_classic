@@ -8,7 +8,7 @@
 	uploader.Name="AnhBia"
 	uploader.InsertText="Upload File (Max 10M)"
     uploader.AllowedFileExtensions="*.jpg,*.png,*.gif,*.zip"
-    uploader.SaveDirectory="/assest/imgupload"
+    uploader.SaveDirectory="../assest/imgupload"
         
 %>
 
@@ -120,32 +120,32 @@ End if
     <!-- #include file="../headerQL.asp" -->
     
     <div class="container py-3">
-    <form method=post>
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="TenSP" value="<%=TenSP%>">
-        <label for="floatingInput">Tên sản phẩm</label>
-    </div>
+    <form method="POST">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Tên sản phẩm" name="TenSP" value="<%=TenSP%>">
+            <label for="floatingInput">Tên sản phẩm</label>
+        </div>
 
-    <div class="form-floating mb-3">
-        <input type="number" class="form-control" id="floatingPassword" placeholder="Giá" name="GiaBan" value="<%=GiaBan%>">
-        <label for="floatingPassword">Giá</label>
-    </div>
+        <div class="form-floating mb-3">
+            <input type="number" class="form-control" id="floatingPassword" placeholder="Giá" name="GiaBan" value="<%=GiaBan%>">
+            <label for="floatingPassword">Giá</label>
+        </div>
 
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingPassword" placeholder="Giới thiệu" name="GioiThieu" value="<%=GioiThieu%>">
-        <label for="floatingPassword">Giới thiệu</label>
-    </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Giới thiệu" name="GioiThieu" value="<%=GioiThieu%>">
+            <label for="floatingPassword">Giới thiệu</label>
+        </div>
 
-    <div class="form-floating mb-3">
-        <input type="text" class="form-control" id="floatingPassword" placeholder="Mô tả chi tiết" name="MoTaChiTiet" value="<%=MoTaChiTiet%>">
-        <label for="floatingPassword">Mô tả chi tiết</label>
-    </div>
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingPassword" placeholder="Mô tả chi tiết" name="MoTaChiTiet" value="<%=MoTaChiTiet%>">
+            <label for="floatingPassword">Mô tả chi tiết</label>
+        </div>
+        
+        <div class="form-floating mb-3" >
     
-    <div class="form-floating mb-3">
-   
-				<%=uploader.GetString() %>
+            <%=uploader.GetString() %>
 
-    </div>
+        </div>
         <button type="submit" class="btn btn-primary">
             <%
                 if (MaSP=0) then
@@ -153,11 +153,13 @@ End if
                 else
                     Response.write("Sửa thông tin sản phẩm")
                 end if
-             %>
+            %>
         </button>
                 <a href="QLSP.asp" class="btn btn-info">Quay lại</a> 
     </form>
     </div>
     <!-- #include file="../Shopping/footer.asp" -->
     </body>
+
+    
 </html>

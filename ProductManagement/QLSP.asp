@@ -3,7 +3,7 @@
     ' Kiểm tra xem người dùng đã đăng nhập chưa
     If Not Session("LoggedIn") Then
         ' Nếu người dùng chưa đăng nhập, điều hướng họ đến trang đăng nhập
-        Response.Redirect("./loginManager.asp")
+        Response.Redirect("../EmployeeManager/loginManager.asp")
     End If
 %>
 <%
