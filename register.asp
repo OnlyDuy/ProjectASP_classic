@@ -101,7 +101,7 @@ End If
             <img src="./assest/img/SALAD-HAT.jpg" alt="Salad" onclick="location.href='./Shopping/home.asp'">
         </div>
         <div class="main">
-            <form action="register.asp" class="form" id="form-1" method="post">
+            <form action="register.asp" class="form" id="form-1" method="POST">
                 <div class="heading">Đăng ký</div>
 
                 <div class="form-group">

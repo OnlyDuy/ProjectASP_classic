@@ -229,6 +229,75 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="card-body p-0">
+                            <div class="row g-0">
+                                <div class="p-5" style="background-color: #ccc">
+                                    <div class="d-flex justify-content-between align-items-center mb-5">
+                                        <h1 class="fw-bold mb-0 text-black">Sản phẩm đã mua</h1>
+                                    </div>
+                                    <form action="removecart.asp" method="post">
+                                        <hr class="my-4">
+                                        <%             
+                                        ' Kiểm tra giỏ hàng có dữ liệu hay không
+                                        If Not IsEmpty(mycart) Then
+                                            'Dim cmdPrep
+                                            Set cmdPrep = Server.CreateObject("ADODB.Command")
+                                            cmdPrep.ActiveConnection = connDB
+                                            cmdPrep.CommandType = 1
+                                            cmdPrep.Prepared = True
+                                            cmdPrep.CommandText = "SELECT DonHang.MaDH, DonHang.ThoiGianDat, DoAn.* " & _
+                                                                "FROM NguoiDung " & _
+                                                                "JOIN DonHang ON NguoiDung.MaKH = DonHang.MaKH " & _
+                                                                "JOIN ChiTietDonHang ON ChiTietDonHang.MaDH = DonHang.MaDH " & _
+                                                                "JOIN DoAn ON DoAn.MaSP = ChiTietDonHang.MaSP"
+                                            
+                                            Set rs = cmdPrep.Execute()
+                                            
+                                            If Not rs.EOF Then
+                                                rs.MoveFirst
+                                                Do Until rs.EOF
+                                                    ' Hiển thị thông tin sản phẩm từ Recordset rs
+                                                    %>
+                                                    <div class="row mb-4 d-flex justify-content-between align-items-center">
+                                                        <div class="col-md-2 col-lg-2 col-xl-2">
+                                                            <img src="../assest/imgupload/<%= rs("AnhBia") %>" class="img-fluid rounded-3" alt="Cotton T-shirt">
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-3 col-xl-3">
+                                                            <h5 class="text-muted"><b><%= rs("TenSP") %></b></h5>
+                                                            <p class="text-black mb-0" style="font-size: 14px;"><%= rs("GioiThieu") %></p>
+                                                        </div>
+                                                       
+                                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                            <h6 class="mb-0"><%= rs("GiaBan") %> VNĐ</h6>
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-2 col-xl-2" >   
+                                        
+                                                            <a class="btn btn-outline-success" href="./addHistoryCart.asp?idproductHistory=<%= rs("MaSP")%>">
+                                                                Thêm vào giỏ
+                                                            </a>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                    <% 
+                                                    rs.MoveNext
+                                                Loop
+                                            End If
+                                            
+                                            rs.Close
+                                            Set rs = Nothing
+                                        End If
+                                        %>
+                                        <hr class="my-4">       
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        
                     </div>
                 </div>
             </div>

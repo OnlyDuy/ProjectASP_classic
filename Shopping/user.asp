@@ -3,6 +3,8 @@
 <html lang="en">
 
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Thông tin khách hàng</title>
         <!-- #include file="./header.asp" -->
 </head>
@@ -27,7 +29,16 @@
     
                             cmdPrep.CommandText = "SELECT HoTen, Email, DiaChi, DienThoai, GioiTinh, NgaySinh FROM NguoiDung WHERE TaiKhoan = '"&Session("username")&"'"
                             ' cmdPrep.Parameters(0) = idUser
-                            Set rs = cmdPrep.execute  
+                            Set rs = cmdPrep.execute 
+                            ' Else If Not rs.EOF Then
+                            '     Dim name, email, address, phonenumber, gender, birthday
+                            '     name = rs("HoTen")
+                            '     email = rs("Email")
+                            '     address = rs("DiaChi")
+                            '     phonenumber = rs("DienThoai")
+                            '     gender= rs("GioiTinh")
+                            '     birthday = rs("NgaySinh")
+                            ' End If
                         Else
                             updatedName=Request.Form("name") 
                             updatedAddress=Request.Form("address") 

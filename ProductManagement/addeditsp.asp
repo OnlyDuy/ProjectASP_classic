@@ -1,16 +1,18 @@
 <!-- #include file="../connect.asp" -->
 <!-- #include file="../assest/aspuploader/include_aspuploader.asp" -->
 
- <%
+<%
 	Dim uploader
 	Set uploader = new AspUploader
 	uploader.MaxSizeKB=10240
 	uploader.Name="AnhBia"
-	uploader.InsertText="Upload File (Max 10M)"
-    uploader.AllowedFileExtensions="*.jpg,*.png,*.gif,*.zip"
+	uploader.MultipleFilesUpload=true
+	uploader.InsertText="Select multiple files (Max 10M)"
+    uploader.AllowedFileExtensions="*.jpg,*.png,"
     uploader.SaveDirectory="../assest/imgupload"
         
 %>
+
 
 <%
 If (Request.ServerVariables("REQUEST_METHOD") = "GET") THEN        
@@ -108,13 +110,13 @@ End if
 
 <html lang="en">
     <head>
-   <meta charset="UTF-8">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quản lý sản phẩm</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+        <meta charset="UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Quản lý sản phẩm</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     </head>
     <body>
     <!-- #include file="../headerQL.asp" -->
@@ -141,10 +143,54 @@ End if
             <label for="floatingPassword">Mô tả chi tiết</label>
         </div>
         
-        <div class="form-floating mb-3" >
-    
-            <%=uploader.GetString() %>
+        <div class="form-floating mb-3">      
+                <%=uploader.GetString() %>
+                
+                <br/>
+                
+                <%
 
+                If Request.Form("AnhBia")&""<>"" Then
+                    
+                    If processedlist="" Then
+                        processedlist=Request.Form("AnhBia")
+                    Else
+                        processedlist=processedlist & "/" & Request.Form("AnhBia")
+                    End If
+                End If
+
+                If processedlist<>"" Then
+                    Dim list,i
+                    list=Split(processedlist,"/")
+
+                    Response.Write("<table style='border-collapse: collapse' class='Grid' border='0' cellspacing='0' cellpadding='2'>")
+                    For i=0 to Ubound(list)
+
+                        
+                        Set mvcfile=uploader.GetUploadedFile(list(i))
+                        
+                        Response.Write("<tr>")
+                        Response.Write("<td>")
+                        Response.Write("<img src='../assest/aspuploader/resources/circle.png' border='0' />")
+                        Response.Write("</td>")
+                        Response.Write("<td>")
+                        Response.Write(mvcfile.FileName)
+                        Response.Write("</td>")
+                        Response.Write("<td>")
+                        Response.Write(mvcfile.FileSize)
+                        Response.Write("</td>")
+                        Response.Write("</tr>")
+                        
+                    Next
+                    
+                    Response.Write("</table>")
+                    
+                End If
+
+                %>
+
+                <input type='hidden' name='processedlist' value='<%= processedlist %>' />            
+  
         </div>
         <button type="submit" class="btn btn-primary">
             <%
@@ -160,6 +206,4 @@ End if
     </div>
     <!-- #include file="../Shopping/footer.asp" -->
     </body>
-
-    
 </html>
