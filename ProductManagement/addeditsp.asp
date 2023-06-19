@@ -12,8 +12,6 @@
     uploader.SaveDirectory="../assest/imgupload"
         
 %>
-
-
 <%
 If (Request.ServerVariables("REQUEST_METHOD") = "GET") THEN        
         MaSP = Request.QueryString("MaSP")
@@ -47,7 +45,7 @@ Else
         MoTaChiTiet=Request.form("MoTaChiTiet")
         AnhBia=Request.form("AnhBia")
         
-        dim mvcfile , picture
+        Dim mvcfile , picture
         Set mvcfile = uploader.GetUploadedFile(Request.Form("AnhBia")) 
         picture = mvcfile.FileName
 
@@ -145,52 +143,6 @@ End if
         
         <div class="form-floating mb-3">      
                 <%=uploader.GetString() %>
-                
-                <br/>
-                
-                <%
-
-                If Request.Form("AnhBia")&""<>"" Then
-                    
-                    If processedlist="" Then
-                        processedlist=Request.Form("AnhBia")
-                    Else
-                        processedlist=processedlist & "/" & Request.Form("AnhBia")
-                    End If
-                End If
-
-                If processedlist<>"" Then
-                    Dim list,i
-                    list=Split(processedlist,"/")
-
-                    Response.Write("<table style='border-collapse: collapse' class='Grid' border='0' cellspacing='0' cellpadding='2'>")
-                    For i=0 to Ubound(list)
-
-                        
-                        Set mvcfile=uploader.GetUploadedFile(list(i))
-                        
-                        Response.Write("<tr>")
-                        Response.Write("<td>")
-                        Response.Write("<img src='../assest/aspuploader/resources/circle.png' border='0' />")
-                        Response.Write("</td>")
-                        Response.Write("<td>")
-                        Response.Write(mvcfile.FileName)
-                        Response.Write("</td>")
-                        Response.Write("<td>")
-                        Response.Write(mvcfile.FileSize)
-                        Response.Write("</td>")
-                        Response.Write("</tr>")
-                        
-                    Next
-                    
-                    Response.Write("</table>")
-                    
-                End If
-
-                %>
-
-                <input type='hidden' name='processedlist' value='<%= processedlist %>' />            
-  
         </div>
         <button type="submit" class="btn btn-primary">
             <%

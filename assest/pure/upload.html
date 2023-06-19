@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<style type="text/css">
+	* {font-family: arial, sans-serif; }
+	.page {width:80%;margin-left:auto;margin-right:auto;}
+	</style>
+</head>
+<body>
+
+<div class="page">
+    
+    <form action="upload.asp" method="post" enctype="multipart/form-data" target="iframe_upload">
+
+        <!-- <input type="hidden" name="mensagem" value="Elemento de formul�rio enviado com sucesso!" /> -->
+    
+    	<!-- <p>Nome (para exemplo:)</p>
+        <input type="text" name="exemplo" value="Nome para exemplo." />
+         -->
+        <p>Fiel/Image:</p>
+        <input type="file" name="arquivo" multiple />
+        
+        <input type="submit" value="Upload" />
+        <input type="button" value="Upload using Ajax" onclick="enviar();" />
+    </form>
+    
+    <br />
+    
+    <iframe name="iframe_upload" src="upload.asp" width="100%" height="200px"></iframe>
+    
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+		function enviar() {
+			
+			var form = $("form");
+			
+			var formdata = false;
+			if (window.FormData){
+				formdata = new FormData(form[0]);
+			}
+			
+			$.ajax({
+				url         : 'upload.ajax.asp',
+				data        : formdata ? formdata : form.serialize(),
+				cache       : false,
+				contentType : false,
+				processData : false,
+				type        : 'POST',
+				success     : function(data, textStatus, jqXHR){
+					
+					console.log(data);
+					alert(data);
+					// Callback code
+				}
+			});			
+			
+			
+		}
+	</script>
+    
+</div>
+
+</body>
+</html>

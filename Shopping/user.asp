@@ -46,8 +46,10 @@
                             updatedBirthday=Request.Form("birthday") ' Cập nhật dữ liệu vào SQL Server
                             If Request.ServerVariables("REQUEST_METHOD") = "POST" Then
 
-                                cmdPrep.CommandText = "UPDATE NguoiDung SET HoTen='" & updatedName & "', DiaChi='" & updatedAddress & "', GioiTinh='" & updatedGender & "', NgaySinh='" & updatedBirthday & "' WHERE TaiKhoan= '"&Session("username")&"'"
-
+                                cmdPrep.CommandText = "UPDATE NguoiDung SET HoTen=?, DiaChi=?,GioiTinh=?, NgaySinh='" & updatedBirthday & "' WHERE TaiKhoan= '"&Session("username")&"'"
+                                cmdPrep.parameters.Append cmdPrep.createParameter("updatedName",202,1,255,updatedName)
+                                cmdPrep.parameters.Append cmdPrep.createParameter("updatedAddress",202,1,255,updatedAddress)
+                                cmdPrep.parameters.Append cmdPrep.createParameter("updatedGender",202,1,255,updatedGender)
                                 cmdPrep.execute
                                 Session("Success")="Thông tin khách hàng đã được sửa"
                                 Response.Redirect "./user.asp"

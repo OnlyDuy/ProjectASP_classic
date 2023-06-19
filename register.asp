@@ -48,7 +48,10 @@ If (Request.ServerVariables("REQUEST_METHOD") = "POST") Then
                     Response.Write("<script>alert('Số điện thoại đã tồn tại);</script>")
                 Else 
                     'Thỏa mãn điều kiện thì thêm thông tin khách hàng
-                    cmdPrep.CommandText = "Insert into NguoiDung(HoTen, Email, DienThoai, DiaChi, TaiKhoan, MatKhau) values('"& fullname &"', '"& email &"', '"& numberphone &"', '"& address &"', '"& username &"', '"& password &"')"
+                    'Thỏa mãn điều kiện thì thêm thông tin khách hàng
+                    cmdPrep.CommandText = "Insert into NguoiDung(HoTen, Email, DienThoai, DiaChi, TaiKhoan, MatKhau) values(?, '"& email &"', '"& numberphone &"', ?, '"& username &"', '"& password &"')"
+                    cmdPrep.parameters.Append cmdPrep.createParameter("fullname",202,1,255,fullname)
+                    cmdPrep.parameters.Append cmdPrep.createParameter("address",202,1,255,address)
                     cmdPrep.execute
                     
                     ' Thong bao tao tai khoan thanh cong
