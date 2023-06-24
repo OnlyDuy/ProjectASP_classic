@@ -70,22 +70,23 @@
                     <h2>Danh sách sản phẩm</h2>
                 </div>
             </div>
-            <div class="container ">
-                 <div class="row">
-                      <div class=col-md-5>
-                      <form action="QLSP.asp" method="post" accept-charset="UTF-8">
-                           <div class="input-group mb-3">
-                           <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm"  aria-describedby="basic-addon1" name="TenSP" value="<%=TenSP%>">
-                           <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+            
+            <div class="container">
+                <div class="row">
+                    <div class=col-md-5>
+                        <form action="QLSP.asp" method="post" accept-charset="UTF-8">
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" placeholder="Tìm kiếm sản phẩm"  aria-describedby="basic-addon1" name="TenSP" value="<%=TenSP%>">
+                                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
                            </div>
-                      </div>
-                      <div class=col-md-2>
-                           <input class="btn btn-success" type="submit" value="Tìm kiếm sản phẩm">
-                      </div>
-                      </form>
-                      <div class=col-md-3>
-                         <a class="btn btn-primary" href="./addeditsp.asp" role="button" id="">Thêm sản phẩm</a> 
-                      </div>
+                        </div>
+                        <div class=col-md-2>
+                            <input class="btn btn-success" type="submit" value="Tìm kiếm sản phẩm">
+                        </div>
+                        </form>
+                        <div class=col-md-3>
+                            <a class="btn btn-primary" href="./addeditsp.asp" role="button" id="">Thêm sản phẩm</a> 
+                        </div>
                  </div>
              </div>
             

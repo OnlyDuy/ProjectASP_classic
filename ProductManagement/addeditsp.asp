@@ -7,7 +7,7 @@
 	uploader.MaxSizeKB=10240
 	uploader.Name="AnhBia"
 	uploader.MultipleFilesUpload=true
-	uploader.InsertText="Select multiple files (Max 10M)"
+	uploader.InsertText="Cập nhật ảnh (Max 10M)"
     uploader.AllowedFileExtensions="*.jpg,*.png,"
     uploader.SaveDirectory="../assest/imgupload"
         
